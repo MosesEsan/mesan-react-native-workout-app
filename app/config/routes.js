@@ -26,7 +26,7 @@ export default class extends React.Component {
             animationEnabled: false,
             tabBarPosition: 'bottom',
             titleStyle: navTitleStyle,
-            backButtonTintColor: color.white,
+            navBarButtonColor: color.white,
             tabBarStyle: {backgroundColor: color.main, borderTopWidth: 0},
             navigationBarStyle
         };
@@ -35,11 +35,11 @@ export default class extends React.Component {
 
         return (
             <Router>
-                <Stack key="root" hideNavBar={true} titleStyle={navTitleStyle}>
+                <Stack key="root" hideNavBar={true} titleStyle={navTitleStyle} >
                     <Tabs key="Main" tabs lazy {...tabProps}>
                         <Stack key="ExerciseTab" icon={TabIcon} iconInfo={HomeIcon}>
                             <Scene key="Main" component={Main} title="meWorkout" initial titleStyle={[navTitleStyle, logoStyle]}/>
-                            <Scene key="Exercises" component={Exercises} title=""/>
+                            <Scene key="Exercises" component={Exercises} title="" back/>
                             <Scene key="Exercise" component={Exercise} title=""/>
                         </Stack>
                         <Stack key="SelectedTab" icon={TabIcon} iconInfo={SelectedIcon}>
