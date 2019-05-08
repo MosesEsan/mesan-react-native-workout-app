@@ -15,9 +15,10 @@ class Exercise extends React.Component {
 
     render() {
         const {exercise} = this.props;
-        const {images, muscle_diagram, instructions} = exercise;
+        const {images, muscle_diagram} = exercise;
 
-        let items = images;
+
+        let items = JSON.parse(JSON.stringify(images));
         items.unshift(muscle_diagram); //add the muscle diagram image to the top of the array
 
         return (

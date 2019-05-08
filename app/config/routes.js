@@ -40,7 +40,7 @@ export default class extends React.Component {
                         <Stack key="ExerciseTab" icon={TabIcon} iconInfo={HomeIcon}>
                             <Scene key="Main" component={Main} title="meWorkout" initial titleStyle={[navTitleStyle, logoStyle]}/>
                             <Scene key="Exercises" component={Exercises} title="" back/>
-                            <Scene key="Exercise" component={Exercise} title=""/>
+                            <Scene key="Exercise" component={Exercise} title="" back />
                         </Stack>
                         <Stack key="SelectedTab" icon={TabIcon} iconInfo={SelectedIcon}>
                             <Scene key="Selected" component={Selected} title="Exercise List"/>

@@ -8,7 +8,7 @@
       "ios",
       "android"
     ],
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -24,6 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "This app allows users to browse for exercises based on a specific body part (Chest, Back, Abs Legs), users can add exercises to their \"Wish List\", the selected exercises can then be used to create a workout plan."
   }
 }
