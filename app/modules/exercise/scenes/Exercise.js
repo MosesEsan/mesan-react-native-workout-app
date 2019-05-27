@@ -10,7 +10,6 @@ class Exercise extends React.Component {
 
     componentDidMount() {
         const {exercise} = this.props;
-        this.props.title = exercise.name
     }
 
     render() {
@@ -52,7 +51,7 @@ const ExerciseInfo = ({exercise}) => {
         <View style={styles.section}>
             <Text style={[styles.name]}>
                 {name}
-            </Text> 
+            </Text>
             <Text style={[styles.equipment]}>
                 Equipment:
                 <Text style={[styles.equipment_l]}>

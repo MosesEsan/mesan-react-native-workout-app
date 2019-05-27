@@ -39,8 +39,8 @@ export default class extends React.Component {
                     <Tabs key="Main" tabs lazy {...tabProps}>
                         <Stack key="ExerciseTab" icon={TabIcon} iconInfo={HomeIcon}>
                             <Scene key="Main" component={Main} title="meWorkout" initial titleStyle={[navTitleStyle, logoStyle]}/>
-                            <Scene key="Exercises" component={Exercises} title="" back/>
-                            <Scene key="Exercise" component={Exercise} title="" back />
+                            <Scene key="Exercises" component={Exercises}  back/>
+                            <Scene key="Exercise" component={Exercise} back />
                         </Stack>
                         <Stack key="SelectedTab" icon={TabIcon} iconInfo={SelectedIcon}>
                             <Scene key="Selected" component={Selected} title="Exercise List"/>

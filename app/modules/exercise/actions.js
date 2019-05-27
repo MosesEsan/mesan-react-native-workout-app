@@ -17,21 +17,6 @@ export function getExercises(muscle) {
     };
 }
 
-export function getSelectedExercises() {
-    return (dispatch) => {
-        return new Promise((resolve, reject) => {
-            AsyncStorage.getItem(t.EXERCISE_KEY, (err, result) => {
-                if (!err) {
-                    let exercises = (!result) ? [] : JSON.parse(result)
-                    dispatch({"type": t.EXERCISES_AVAILABLE, data: {exercises}});
-                    resolve();
-                }
-                else reject({message: err})
-            });
-        });
-    };
-}
-
 export function addExercise(exercise) {
     return (dispatch) => {
         return new Promise((resolve, reject) => {
@@ -80,6 +65,21 @@ export function removeExercise(id) {
                         reject({message: "Exercise not found"})
                     }
                 } else reject({message: "Unable to add exercise, please try again !"})
+            });
+        });
+    };
+}
+
+export function getSelectedExercises() {
+    return (dispatch) => {
+        return new Promise((resolve, reject) => {
+            AsyncStorage.getItem(t.EXERCISE_KEY, (err, result) => {
+                if (!err) {
+                    let exercises = (!result) ? [] : JSON.parse(result)
+                    dispatch({"type": t.EXERCISES_AVAILABLE, data: {exercises}});
+                    resolve();
+                }
+                else reject({message: err})
             });
         });
     };

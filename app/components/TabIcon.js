@@ -10,27 +10,27 @@ class TabIcon extends React.Component {
         let {type, name, title, size, color, selected, style, iconSize, showBadge} = iconInfo;
 
         return (
-                <View style={[styles.container, style]}>
-                    <View style={[styles.wrapper, {width: size, height: size}]}>
-                        <Icon name={name}
-                              type={type}
-                              size={iconSize}
-                              color={focused ? selected : color}/>
-                        {
-                            (title) &&
-                            <Text style={[styles.title, {color: focused ? selected : color}]}>
-                                {title}
-                            </Text>
-                        }
+            <View style={[styles.container, style]}>
+                <View style={[styles.wrapper, {width: size, height: size}]}>
+                    <Icon name={name}
+                          type={type}
+                          size={iconSize}
+                          color={focused ? selected : color}/>
+                    {
+                        (title) &&
+                        <Text style={[styles.title, {color: focused ? selected : color}]}>
+                            {title}
+                        </Text>
+                    }
 
-                        {
-                            (showBadge && exercises.length > 0) &&
-                            <View style={styles.badgeContainer}>
-                                <Text style={styles.badge}>{this.props.exercises.length}</Text>
-                            </View>
-                        }
-                    </View>
+                    {
+                        (showBadge && exercises.length > 0) &&
+                        <View style={styles.badgeContainer}>
+                            <Text style={styles.badge}>{this.props.exercises.length}</Text>
+                        </View>
+                    }
                 </View>
+            </View>
         )
     }
 }

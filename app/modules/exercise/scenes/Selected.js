@@ -3,7 +3,7 @@ import {FlatList, View, RefreshControl} from 'react-native';
 import {connect} from 'react-redux';
 
 import ExerciseItem from "../components/ExerciseItem"
-import {Loading, Error, Empty} from "../components/SharedComponents"
+import {Loading, Error, Empty} from "../../../components/SharedComponents"
 
 import {actions} from "../index"
 

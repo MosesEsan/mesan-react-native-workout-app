@@ -38,7 +38,7 @@ class ExerciseItem extends React.Component {
             <TouchableHighlight
                 style={styles.container}
                 underlayColor={"transparent"}
-                onPress={() => Actions.Exercise({exercise})}>
+                onPress={() => Actions.Exercise({exercise, title:name})}>
                 <View style={[styles.wrapper]}>
                     <Image source={{uri: images[0]}} style={styles.img}/>
 

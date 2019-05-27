@@ -3,7 +3,7 @@ import {FlatList, RefreshControl} from 'react-native';
 import {connect} from 'react-redux';
 
 import ExerciseItem from "../components/ExerciseItem"
-import { Loading, Error, Empty } from "../components/SharedComponents"
+import { Loading, Error, Empty } from "../../../components/SharedComponents"
 
 import { actions } from "../index"
 
@@ -20,7 +20,6 @@ class Exercises extends React.Component {
 
     componentDidMount() {
         this.getExercises(false);
-        this.props.title = this.props.muscle
     }
 
     getExercises = (refreshing = true) => {
@@ -51,22 +50,22 @@ class Exercises extends React.Component {
     render() {
         const {exercises, isFetching, hasError} = this.state;
         return (
-                <FlatList
-                    style={{backgroundColor: '#eaeaea'}}
-                    contentContainerStyle={{}}
-                    ref='listRef'
-                    data={(isFetching || hasError) ? [{id: 0}] : exercises}
-                    extraData={this.state}
-                    renderItem={this.renderItem}
-                    ListEmptyComponent={this.renderEmpty}
-                    initialNumToRender={5}
-                    keyExtractor={(item, index) => index.toString() + "_exercise"}
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={this.state.refreshing}
-                            onRefresh={this.getExercises}
-                        />
-                    }/>
+            <FlatList
+                style={{backgroundColor: '#eaeaea'}}
+                contentContainerStyle={{}}
+                ref='listRef'
+                data={(isFetching || hasError) ? [{id: 0}] : exercises}
+                extraData={this.state}
+                renderItem={this.renderItem}
+                ListEmptyComponent={this.renderEmpty}
+                initialNumToRender={5}
+                keyExtractor={(item, index) => index.toString() + "_exercise"}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={this.state.refreshing}
+                        onRefresh={this.getExercises}
+                    />
+                }/>
         );
     }
 }
