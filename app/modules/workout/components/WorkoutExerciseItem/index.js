@@ -5,29 +5,31 @@ import {Actions} from 'react-native-router-flux'
 import {Icon} from 'react-native-elements';
 
 import styles from "./styles"
+import {color} from "../../../exercise/components/ExerciseItem/styles";
 
-class WorkoutItem extends React.Component {
+class WorkoutExerciseItem extends React.Component {
     render() {
-        const {workout} = this.props;
-        const {name, muscles, dateCreated, exercises} = workout;
+        const {exercise} = this.props;
+        let {id, name, images, muscles, equipment, sets, reps} = exercise;
 
         return (
             <TouchableHighlight
                 style={styles.container}
                 underlayColor={"transparent"}
-                onPress={() => Actions.Workout({workout, title: name})}>
+                onPress={() => Actions.Exercise({exercise, title: name})}>
                 <View style={[styles.wrapper]}>
                     <View style={[styles.info]}>
                         <View style={{flexDirection: "row"}}>
+                            <Image source={{uri: images[0]}} style={styles.img}/>
                             <View style={{flex:1}}>
                                 <Text style={[styles.name]}>
                                     {name}
                                 </Text>
 
                                 <Text style={[styles.equipment]}>
-                                    Muscles Worked:
+                                    Equipment Needed:
                                     <Text style={[styles.muscles_l]}>
-                                        {" "+muscles.join(" ,")}
+                                        {" "+equipment}
                                     </Text>
                                 </Text>
                             </View>
@@ -55,17 +57,17 @@ class WorkoutItem extends React.Component {
 
                         <View style={styles.exercises}>
                             {
-                                exercises.map((exercise, idx) => {
+                                sets.map((set, idx) => {
                                     return(
                                         <View style={styles.exercise} key={idx}>
                                             <Text style={[styles.text, styles.exercise_name]}>
-                                                {exercise.name}
+                                                {`Set ${idx + 1}`}
                                             </Text>
                                             <Text style={[styles.text, styles.sets_reps]}>
-                                                {extractReps(exercise.sets)}
+                                                {`${set.reps}`}
                                             </Text>
                                             <Text style={[styles.text, styles.weight]}>
-                                                {`${exercise.sets[0]["weight"]}kg`}
+                                                {`${set.weight}kg`}
                                             </Text>
                                         </View>
                                     )
@@ -81,26 +83,6 @@ class WorkoutItem extends React.Component {
     }
 };
 
-function extractReps(sets){
-    let same = true;
-    let all_reps = []
-    let current = sets[0]["reps"]
 
-    sets.map((set, idx) => {
-        let reps = set.reps;
-        all_reps.push(reps)
-
-        if (idx > 0){
-            //compare it to the previous reps value
-            if (same === true && reps === current) same = false;
-        }
-    });
-
-    return (same === true) ? `${sets.length} x ${current}` : all_reps.join("/");
-}
-
-
-export default WorkoutItem;
-
-
+export default WorkoutExerciseItem;
 

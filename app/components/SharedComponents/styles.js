@@ -1,6 +1,4 @@
-import {theme} from "../../index"
-
-export const {color, fontFamily, fontSize, padding, windowHeight, navbarHeight} = theme;
+import {color, fontFamily, fontSize, padding, windowHeight, navbarHeight} from "../../config/theme"
 
 const styles = {
     container:{

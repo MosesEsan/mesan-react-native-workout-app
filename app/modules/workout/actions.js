@@ -1,4 +1,7 @@
 import * as t from './constants';
+import workouts from '../../config/workouts';
+
+let sample_workouts = workouts["workouts"]
 
 import {AsyncStorage} from 'react-native';
 
@@ -21,16 +24,13 @@ class Workout {
     }
 }
 
-
 //Get all Workouts
 export function getWorkouts() {
     return (dispatch) => {
         return new Promise((resolve, reject) => {
             AsyncStorage.getItem(t.WORKOUT_KEY, (err, result) => {
                 if (!err) {
-                    let workouts = (!result) ? [
-                        {name: "Workout 1", muscles: ["arms", "chest", "abs"], exercises:[0,1,2,4,5,7], dateCreated: new Date()}
-                        ] : JSON.parse(result)
+                    let workouts = (!result) ? sample_workouts : JSON.parse(result)
                     dispatch({"type": t.WORKOUTS_AVAILABLE, data: {workouts}});
                     resolve();
                 }
@@ -68,9 +68,9 @@ export function updateWorkout(workout) {
             //Get the current value
             AsyncStorage.getItem(t.WORKOUT_KEY, (err, result) => {
                 if (!err) {
-                    if (!result){
+                    if (!result) {
                         reject({message: "Workout not found"})
-                    }else{
+                    } else {
                         let workouts = JSON.parse(result);
 
                         //find the index of the workout with the workout id passed
@@ -99,9 +99,9 @@ export function deleteWorkout(id) {
             //Get the current value
             AsyncStorage.getItem(t.WORKOUT_KEY, (err, result) => {
                 if (!err) {
-                    if (!result){
+                    if (!result) {
                         reject({message: "Workout not found"})
-                    }else{
+                    } else {
                         let workouts = JSON.parse(result);
 
                         //find the index of the workout with the workout id passed

@@ -55,7 +55,6 @@ class Workouts extends React.Component {
         const {workouts} = this.props;
 
         return (
-            <View>
                 <FlatList
                     style={{backgroundColor: '#eaeaea'}}
                     contentContainerStyle={{}}
@@ -72,7 +71,6 @@ class Workouts extends React.Component {
                             onRefresh={this.getWorkouts}
                         />
                     }/>
-            </View>
         );
     }
 }

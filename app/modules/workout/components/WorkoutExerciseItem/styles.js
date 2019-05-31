@@ -78,29 +78,28 @@ const styles = StyleSheet.create({
 
     text: {
         fontSize: fontSize.regular,
+        fontFamily: fontFamily.regular,
         fontFamily: fontFamily.medium,
         color: color.light_black,
         textAlign: "center",
+        flex: 1,
     },
 
     exercise_name: {
         flex: 1,
         textAlign: "left",
-        borderWidth:1
     },
 
     sets_reps: {
         fontFamily: fontFamily.medium,
         // color: color.secondary,
-        width: 70,
-        borderWidth:1
+        // width: 100,
     },
 
 
     weight: {
-        width: 70,
+        // width: 120,
         textAlign: "right",
-        borderWidth:1
     },
 
 

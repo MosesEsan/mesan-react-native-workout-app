@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList, View} from 'react-native';
 
-import WorkoutItem from "../components/WorkoutItem"
+import WorkoutExerciseItem from "../components/WorkoutExerciseItem"
 import {Empty} from "../../../components/SharedComponents"
 
 class Workout extends React.Component {
@@ -13,7 +13,7 @@ class Workout extends React.Component {
     }
 
     renderItem = ({item, index}) => {
-        return <WorkoutItem workout={item}/>
+        return <WorkoutExerciseItem exercise={item}/>
     };
 
     renderEmpty = () => (
