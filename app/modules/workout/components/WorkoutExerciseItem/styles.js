@@ -77,29 +77,39 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: fontSize.regular,
-        fontFamily: fontFamily.regular,
+        fontSize: fontSize.regular - 1,
         fontFamily: fontFamily.medium,
         color: color.light_black,
         textAlign: "center",
-        flex: 1,
+        flex: 1
     },
 
-    exercise_name: {
+    set_name: {
         flex: 1,
         textAlign: "left",
+        borderWidth:1,
+        marginRight: padding * 1.5
     },
 
     sets_reps: {
         fontFamily: fontFamily.medium,
-        // color: color.secondary,
-        // width: 100,
+        fontSize: fontSize.regular,
+        color: "#AB1D20",
+        width: 100,
+        borderWidth:1,
+        marginRight: padding * 1.5
     },
 
+    sets_reps_text:{
+        fontFamily: fontFamily.regular,
+        fontSize: fontSize.regular - 1,
+        color: color.light_black,
+    },
 
     weight: {
-        // width: 120,
+        width: 100,
         textAlign: "right",
+        marginRight: 0
     },
 
 

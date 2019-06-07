@@ -65,7 +65,7 @@ class SelectedExercises extends React.Component {
                     renderItem={this.renderItem}
                     ListEmptyComponent={this.renderEmpty}
                     initialNumToRender={5}
-                    keyExtractor={(item, index) => index.toString() + "_selected"}
+                    keyExtractor={(zitem, index) => index.toString() + "_selected"}
                     refreshControl={
                         <RefreshControl
                             refreshing={this.state.refreshing}

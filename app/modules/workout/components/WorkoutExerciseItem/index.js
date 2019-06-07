@@ -5,7 +5,6 @@ import {Actions} from 'react-native-router-flux'
 import {Icon} from 'react-native-elements';
 
 import styles from "./styles"
-import {color} from "../../../exercise/components/ExerciseItem/styles";
 
 class WorkoutExerciseItem extends React.Component {
     render() {
@@ -60,14 +59,20 @@ class WorkoutExerciseItem extends React.Component {
                                 sets.map((set, idx) => {
                                     return(
                                         <View style={styles.exercise} key={idx}>
-                                            <Text style={[styles.text, styles.exercise_name]}>
+                                            <Text style={[styles.text, styles.set_name]}>
                                                 {`Set ${idx + 1}`}
                                             </Text>
-                                            <Text style={[styles.text, styles.sets_reps]}>
+                                            <Text style={[styles.text, styles.sets_reps, {borderWidth:1}]}>
                                                 {`${set.reps}`}
+                                                <Text style={[styles.sets_reps_text]}>
+                                                    {` reps`}
+                                                </Text>
                                             </Text>
-                                            <Text style={[styles.text, styles.weight]}>
-                                                {`${set.weight}kg`}
+                                            <Text style={[styles.text, styles.sets_reps, styles.weight, {borderWidth:1}]}>
+                                                {`${set.weight}`}
+                                                <Text style={[styles.sets_reps_text]}>
+                                                    {` kg`}
+                                                </Text>
                                             </Text>
                                         </View>
                                     )

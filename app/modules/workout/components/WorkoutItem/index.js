@@ -20,9 +20,9 @@ class WorkoutItem extends React.Component {
                     <View style={[styles.info]}>
                         <View style={{flexDirection: "row"}}>
                             <View style={{flex:1}}>
-                                <Text style={[styles.name]}>
-                                    {name}
-                                </Text>
+                                    <Text style={[styles.name]}>
+                                        {name}
+                                    </Text>
 
                                 <Text style={[styles.equipment]}>
                                     Muscles Worked:
@@ -61,12 +61,28 @@ class WorkoutItem extends React.Component {
                                             <Text style={[styles.text, styles.exercise_name]}>
                                                 {exercise.name}
                                             </Text>
-                                            <Text style={[styles.text, styles.sets_reps]}>
-                                                {extractReps(exercise.sets)}
-                                            </Text>
-                                            <Text style={[styles.text, styles.weight]}>
-                                                {`${exercise.sets[0]["weight"]}kg`}
-                                            </Text>
+                                            <View style={{borderWidth:1, borderColor:"red", flex:1, flexDirection: "row"}}>
+                                                <View style={{flexDirection: "row", flex:1}}>
+                                                    <Text style={[styles.text, styles.sets_reps, {borderWidth:1, textAlign:"left"}]}>
+                                                        {getReps (exercise.sets)}
+                                                        <Text style={[styles.text, styles.sets_reps, styles.sets_reps_text]}>
+                                                            {` reps`}
+                                                        </Text>
+                                                    </Text>
+                                                    <Text style={[styles.text, styles.sets_reps, {borderWidth:1}]}>
+                                                        {exercise.sets.length}
+                                                        <Text style={[styles.text, styles.sets_reps, styles.sets_reps_text]}>
+                                                            {` sets`}
+                                                        </Text>
+                                                    </Text>
+                                                </View>
+                                                <Text style={[styles.text, styles.sets_reps, styles.weight, {borderWidth:1}]}>
+                                                    {`${exercise.sets[0]["weight"]}`}
+                                                    <Text style={[styles.sets_reps_text]}>
+                                                        {` kg`}
+                                                    </Text>
+                                                </Text>
+                                            </View>
                                         </View>
                                     )
 
@@ -92,11 +108,29 @@ function extractReps(sets){
 
         if (idx > 0){
             //compare it to the previous reps value
-            if (same === true && reps === current) same = false;
+            if (same === true && reps !== current) same = false;
         }
     });
 
     return (same === true) ? `${sets.length} x ${current}` : all_reps.join("/");
+}
+
+function getReps(sets){
+    let same = true;
+    let all_reps = []
+    let current = sets[0]["reps"]
+
+    sets.map((set, idx) => {
+        let reps = set.reps;
+        all_reps.push(reps)
+
+        if (idx > 0){
+            //compare it to the previous reps value
+            if (same === true && reps !== current) same = false;
+        }
+    });
+
+    return (same === true) ? `${current}` : all_reps.join("/");
 }
 
 

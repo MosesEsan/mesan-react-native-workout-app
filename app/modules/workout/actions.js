@@ -1,4 +1,5 @@
 import * as t from './constants';
+import * as t2 from './../exercise/constants';
 import workouts from '../../config/workouts';
 
 let sample_workouts = workouts["workouts"]
@@ -122,4 +123,18 @@ export function deleteWorkout(id) {
             });
         })
     }
+}
+
+export function getSelectedExercises() {
+    return (dispatch) => {
+        return new Promise((resolve, reject) => {
+            AsyncStorage.getItem(t2.EXERCISE_KEY, (err, result) => {
+                if (!err) {
+                    let exercises = (!result) ? [] : JSON.parse(result)
+                    resolve(exercises);
+                }
+                else reject({message: err})
+            });
+        });
+    };
 }

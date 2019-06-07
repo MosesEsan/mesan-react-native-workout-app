@@ -12,14 +12,18 @@
     "moment": "^2.24.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-draggable-flatlist": "^1.1.7",
     "react-native-elements": "^1.1.0",
+    "react-native-picker-select": "^6.1.1",
     "react-native-router-flux": "^4.0.6",
     "react-native-size-matters": "^0.2.1",
+    "react-native-sortable-listview": "^0.2.8",
     "react-native-swiper": "^1.5.14",
     "react-native-web-swiper": "^1.14.0",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rn-modal-picker": "^0.2.2"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"

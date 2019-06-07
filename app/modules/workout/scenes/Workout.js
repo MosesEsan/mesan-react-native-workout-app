@@ -5,12 +5,6 @@ import WorkoutExerciseItem from "../components/WorkoutExerciseItem"
 import {Empty} from "../../../components/SharedComponents"
 
 class Workout extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            workout: props.workout
-        }
-    }
 
     renderItem = ({item, index}) => {
         return <WorkoutExerciseItem exercise={item}/>

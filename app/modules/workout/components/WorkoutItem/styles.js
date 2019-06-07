@@ -73,11 +73,12 @@ const styles = StyleSheet.create({
     },
 
     exercise: {
-        flexDirection: "row", paddingVertical: padding - 1
+        // flexDirection: "row",
+        paddingVertical: padding - 1
     },
 
     text: {
-        fontSize: fontSize.regular,
+        fontSize: fontSize.regular - 1,
         fontFamily: fontFamily.medium,
         color: color.light_black,
         textAlign: "center",
@@ -86,21 +87,33 @@ const styles = StyleSheet.create({
     exercise_name: {
         flex: 1,
         textAlign: "left",
-        borderWidth:1
+    },
+
+    set_name: {
+        flex: 1,
+        textAlign: "left",
+        borderWidth:1,
+        marginRight: padding * 1.5
     },
 
     sets_reps: {
         fontFamily: fontFamily.medium,
-        // color: color.secondary,
-        width: 70,
-        borderWidth:1
+        fontSize: fontSize.regular,
+        color: "#AB1D20",
+        borderWidth:1,
+        marginRight: padding * 1.5
     },
 
+    sets_reps_text:{
+        fontFamily: fontFamily.regular,
+        fontSize: fontSize.regular - 1,
+        color: color.light_black,
+    },
 
     weight: {
-        width: 70,
+        width: 100,
         textAlign: "right",
-        borderWidth:1
+        marginRight: 0
     },
 
 

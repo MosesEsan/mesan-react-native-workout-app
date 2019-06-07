@@ -10,6 +10,7 @@ import Selected from '../modules/exercise/scenes/Selected'
 
 import Workouts from '../modules/workout/scenes/Workouts'
 import Workout from '../modules/workout/scenes/Workout'
+import NewWorkout from '../modules/workout/scenes/NewWorkout'
 
 import {color, navTitleStyle, tabIconStyle, navigationBarStyle, fontFamily} from "../config/theme";
 import {StatusBar} from "react-native";
@@ -50,8 +51,9 @@ export default class extends React.Component {
                             <Scene key="Selected" component={Selected} title="Exercise List"/>
                         </Stack>
                         <Stack key="WorkoutTab" icon={TabIcon} iconInfo={WorkoutIcon}>
-                            <Scene key="Workouts" component={Workouts} title="Workouts"/>
+                            <Scene key="Workouts" component={Workouts} title="Workouts" initial/>
                             <Scene key="Workout" component={Workout} title="Workout Exercises" back/>
+                            <Scene key="NewWorkout" component={NewWorkout} title="NewWorkout" back/>
                         </Stack>
                     </Tabs>
                 </Stack>

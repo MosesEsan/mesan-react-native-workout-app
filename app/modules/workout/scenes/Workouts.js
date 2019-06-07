@@ -1,6 +1,8 @@
 import React from 'react';
-import {FlatList, View, RefreshControl} from 'react-native';
+import {FlatList, View, RefreshControl, TouchableOpacity, Text} from 'react-native';
 import {connect} from 'react-redux';
+
+import {Actions} from 'react-native-router-flux'
 
 import WorkoutItem from "../components/WorkoutItem"
 import {Loading, Error, Empty} from "../../../components/SharedComponents"
@@ -8,6 +10,8 @@ import {Loading, Error, Empty} from "../../../components/SharedComponents"
 import {actions} from "../index"
 
 const {getWorkouts, deleteWorkout} = actions;
+
+import styles, {padding} from "./styles"
 
 class Workouts extends React.Component {
     state = {
@@ -55,6 +59,7 @@ class Workouts extends React.Component {
         const {workouts} = this.props;
 
         return (
+            <View>
                 <FlatList
                     style={{backgroundColor: '#eaeaea'}}
                     contentContainerStyle={{}}
@@ -71,6 +76,12 @@ class Workouts extends React.Component {
                             onRefresh={this.getWorkouts}
                         />
                     }/>
+
+                <TouchableOpacity onPress={Actions.NewWorkout} style={styles.fab}>
+                    <Text style={styles.fabIcon}>+</Text>
+                </TouchableOpacity>
+
+            </View>
         );
     }
 }
